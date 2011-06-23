@@ -1,5 +1,7 @@
 <?php
 
+use Zend\Application;
+
 /**
  *   File: Bootstrap.php
  *
@@ -7,7 +9,7 @@
  *       Application bootstraper, called by Zend_Application in index.php
  *       Basically, initializing resources on application level
 */
-class Bootstrap extends Zend_Application_Bootstrap_Bootstrap {
+class Bootstrap extends Application\Bootstrap {
 
     /**
      * 
