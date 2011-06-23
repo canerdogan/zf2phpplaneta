@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>application/modules</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <!--[if IE]><script src="excanvas.compressed.js"></script><![endif]-->
+    <script src="RGraph.common.core.js" ></script>
+    <script src="RGraph.common.tooltips.js" ></script>
+    <script src="RGraph.bar.js" ></script>
+    <script src="RGraph.scatter.js" ></script>
+  </head>
+
+  <body>
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr><td class="title">application/modules</td></tr>
+      <tr><td><div align="center"><p><a href="application_modules.html">Back to Code Coverage report</a></p></div></td></tr>
+      <tr><td class="ruler"><img src="glass.png" width="3" height="3" alt=""></td></tr>
+    </table>
+
+    <br />
+
+    <center>
+      <table width="90%" cellpadding="2" cellspacing="1" border="0">
+        <tr>
+          <td valign="top">
+            <h2>Class Coverage Distribution</h2>
+            <canvas id="classCoverageDistribution" width="475" height="200"></canvas>
+            <script>
+            var ccd = new RGraph.Bar('classCoverageDistribution', [13,1,0,2,3,1,0,0,1,3,5,18]);
+            ccd.Set('chart.background.barcolor1', 'white');
+            ccd.Set('chart.background.barcolor2', 'white');
+            ccd.Set('chart.colors', ['blue']);
+            ccd.Set('chart.shadow', true);
+            ccd.Set('chart.shadow.offsetx', 3);
+            ccd.Set('chart.shadow.offsety', 3);
+            ccd.Set('chart.labels', ['0%','0-10%','10-20%','20-30%','30-40%','40-50%','50-60%','60-70%','70-80%','80-90%','90-100%','100%']);
+            ccd.Set('chart.text.size', 5);
+            ccd.Draw();
+            </script>
+          </td>
+
+          <td valign="top">
+            <h2>Class Complexity</h2>
+            <canvas id="classComplexity" width="475" height="200"></canvas>
+            <script>
+            var cc = new RGraph.Scatter('classComplexity', [[0,3,"blue","AdminController"],[0,8,"blue","ErrorController"],[32.142857142857,8,"blue","IndexController"],[0,7,"blue","LogsController"],[0,19,"blue","NewsCategoriesController"],[0,14,"blue","NewsCommentsController"],[0,34,"blue","NewsController"],[0,28,"blue","NewsTagsController"],[34.615384615385,8,"blue","UserController"],[0,3,"blue","Zend_Controller_Action_Helper_LoggedInUser"],[100,1,"blue","Planet_Form_Contact"],[100,1,"blue","Planet_Form_News"],[41.666666666667,2,"blue","Planet_Form_News_Add"],[100,1,"blue","Planet_Form_News_Categories"],[36.363636363636,2,"blue","Planet_Form_News_Categories_Add"],[21.428571428571,2,"blue","Planet_Form_News_Categories_Edit"],[100,1,"blue","Planet_Form_News_Comments"],[100,1,"blue","Planet_Form_News_Comments_Add"],[100,1,"blue","Planet_Form_News_Comments_Edit"],[21.428571428571,2,"blue","Planet_Form_News_Edit"],[100,1,"blue","Planet_Form_News_Tags"],[77.551020408163,2,"blue","Planet_Form_News_Tags_Edit"],[100,1,"blue","Planet_Form_User_Login"],[0,3,"blue","Planet_Model_Logs"],[89.669421487603,78,"blue","Planet_Model_News"],[100,3,"blue","Planet_Model_User"],[91.428571428571,10,"blue","Planet_Model_Resource_Logs"],[100,24,"blue","Planet_Model_Resource_News"],[98.076923076923,14,"blue","Planet_Model_Resource_News_Categories"],[100,0,"blue","Planet_Model_Resource_News_Categories_Item"],[88.636363636364,13,"blue","Planet_Model_Resource_News_Comments"],[100,0,"blue","Planet_Model_Resource_News_Comments_Item"],[100,0,"blue","Planet_Model_Resource_News_Item"],[90.47619047619,17,"blue","Planet_Model_Resource_News_Tags"],[100,0,"blue","Planet_Model_Resource_News_Tags_Item"],[93.150684931507,14,"blue","Planet_Model_Resource_News_Tags_Relations"],[100,0,"blue","Planet_Model_Resource_News_Tags_Relations_Item"],[100,5,"blue","Planet_Model_Resource_User"],[100,0,"blue","Planet_Model_Resource_User_Item"],[5.8823529411765,10,"blue","Planet_Service_Auth"],[85.714285714286,18,"blue","Planet_Service_Contact"],[0,3,"blue","Zend_View_Helper_Comments"],[0,37,"blue","Zend_View_Helper_CustomBreadcrumbs"],[0,7,"blue","Zend_View_Helper_MostUsedTags"],[0,12,"blue","Zend_View_Helper_NavigationContainer"],[100,6,"blue","Zend_View_Helper_NumberOfComments"],[96,7,"blue","Zend_View_Helper_Tags"]]);
+            cc.Set('chart.xmax', 100);
+            cc.Set('chart.background.barcolor1', 'white');
+            cc.Set('chart.background.barcolor2', 'white');
+            cc.Set('chart.tickmarks', 'plus');
+            cc.Set('chart.ticksize', 5);
+            cc.Set('chart.text.size', 5);
+            cc.Set('chart.ylabels', false);
+            cc.Draw();
+            </script>
+          </td>
+        </tr>
+        <tr>
+          <td valign="top">
+            <h2>Top Project Risks</h2>
+            <ul>
+              <li><a href="application_modules_public_controllers_UserController.php.html#3">UserController</a> (25)</li>
+              <li><a href="application_modules_public_services_Contact.php.html#12">Planet_Service_Contact</a> (18)</li>
+              <li><a href="application_modules_public_models_resources_News_Tags.php.html#9">Planet_Model_Resource_News_Tags</a> (17)</li>
+              <li><a href="application_modules_public_models_resources_News_Tags_Relations.php.html#12">Planet_Model_Resource_News_Tags_Relations</a> (14)</li>
+              <li><a href="application_modules_public_models_resources_News_Categories.php.html#9">Planet_Model_Resource_News_Categories</a> (14)</li>
+              <li><a href="application_modules_public_models_resources_News_Comments.php.html#9">Planet_Model_Resource_News_Comments</a> (13)</li>
+              <li><a href="application_modules_public_views_helpers_Comments.php.html#16">Zend_View_Helper_Comments</a> (12)</li>
+              <li><a href="application_modules_public_controllers_helpers_LoggedInUser.php.html#8">Zend_Controller_Action_Helper_LoggedInUser</a> (12)</li>
+              <li><a href="application_modules_public_models_resources_Logs.php.html#12">Planet_Model_Resource_Logs</a> (10)</li>
+              <li><a href="application_modules_public_views_helpers_Tags.php.html#16">Zend_View_Helper_Tags</a> (7)</li>
+
+            </ul>
+          </td>
+
+          <td valign="top">
+            <h2>Least Tested Methods</h2>
+            <ul>
+              <li><a href="application_modules_public_services_Auth.php.html#71">Planet_Service_Auth::clear</a> (0%)</li>
+              <li><a href="application_modules_public_services_Auth.php.html#58">Planet_Service_Auth::getIdentity</a> (0%)</li>
+              <li><a href="application_modules_public_services_Auth.php.html#34">Planet_Service_Auth::authenticate</a> (0%)</li>
+              <li><a href="application_modules_public_models_News.php.html#119">Planet_Model_News::getNewsForYearAndMonth</a> (0%)</li>
+              <li><a href="application_modules_public_services_Auth.php.html#76">Planet_Service_Auth::getAuth</a> (0%)</li>
+              <li><a href="application_modules_public_services_Auth.php.html#85">Planet_Service_Auth::_getAuthAdapter</a> (0%)</li>
+              <li><a href="application_modules_public_views_helpers_CustomBreadcrumbs.php.html#30">Zend_View_Helper_CustomBreadcrumbs::customBreadcrumbs</a> (0%)</li>
+              <li><a href="application_modules_public_views_helpers_Comments.php.html#25">Zend_View_Helper_Comments::_getModel</a> (0%)</li>
+              <li><a href="application_modules_public_views_helpers_Comments.php.html#20">Zend_View_Helper_Comments::comments</a> (0%)</li>
+              <li><a href="application_modules_public_models_Logs.php.html#19">Planet_Model_Logs::deleteLogs</a> (0%)</li>
+
+            </ul>
+          </td>
+        </tr>
+      </table>
+    </center>
+
+    <br />
+
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr><td class="ruler"><img src="glass.png" width="3" height="3" alt=""></td></tr>
+      <tr><td class="versionInfo">Generated by <a href="http://github.com/sebastianbergmann/php-code-coverage" target="_top">PHP_CodeCoverage 1.0.3</a> using <a href="http://www.php.net/" target="_top">PHP 5.3.3-1ubuntu9.5</a> and PHPUnit 3.5.10 at Wed May 18 18:07:11 CEST 2011.</td></tr>
+    </table>
+
+    <br/>
+  </body>
+</html>
