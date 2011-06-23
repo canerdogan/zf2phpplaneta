@@ -1,20 +1,23 @@
 <?php
 
-class IndexController extends Zend_Controller_Action
+use Zend\Controller\Action;
+
+class IndexController extends Action
 {
 
     public function init()
     {
-        $this->model = new Planet_Model_News();
-        $this->fm = $this->getHelper('flashMessenger');
-        $this->redirector = $this->getHelper('redirector');
+//        $this->model = new Planet_Model_News();
+//        $this->fm = $this->getHelper('flashMessenger');
+//        $this->redirector = $this->getHelper('redirector');
     }
 
     public function indexAction()
     {
-        $page = $this->_getParam('page', 1);
+//        $page = $this->_getParam('page', 1);
 
-        $this->view->news = $this->model->getAllActiveNews($page);
+//        $this->view->news = $this->model->getAllActiveNews($page);
+        $this->view->news = array();
     }
 
     public function aboutAction()

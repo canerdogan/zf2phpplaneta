@@ -1,12 +1,13 @@
 <?php
 
+use Zend\Controller\Action\Helper;
+
 /**
  * Description of LoggedInUser
  *
  * @author robert
  */
-class Zend_Controller_Action_Helper_LoggedInUser
-        extends Zend_Controller_Action_Helper_Abstract
+class Zend_Controller_Action_Helper_LoggedInUser extends Helper\AbstractHelper
 {
     protected $_auth = null;
 

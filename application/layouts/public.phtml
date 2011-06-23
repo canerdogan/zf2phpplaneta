@@ -1,8 +1,8 @@
-<?php echo $this->doctype(); ?>
+<?php echo $this->broker('doctype'); ?>
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <?php echo $this->headMeta(); ?>
-        <?php echo $this->headTitle(); ?>
+        <?php echo $this->broker('headMeta'); ?>
+        <?php echo $this->broker('headTitle'); ?>
 
         <link rel="shortcut icon" href="/favicon.png" type="image/x-icon" />
 
@@ -11,25 +11,11 @@
         <link rel="stylesheet" href="/static/css/960.css" type="text/css" />
         <link rel="stylesheet" href="/static/css/public.css" type="text/css" />
 
-        <?php echo $this->headLink(); ?>
+        <?php echo $this->broker('headLink'); ?>
 
-        <?php echo $this->jQuery(); ?>
+        <?php //echo $this->jQuery(); ?>
 
-        <?php echo $this->headScript(); ?>
-
-        <script type="text/javascript">
-
-          var _gaq = _gaq || [];
-          _gaq.push(['_setAccount', 'UA-19141826-1']);
-          _gaq.push(['_trackPageview']);
-
-          (function() {
-            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-          })();
-
-        </script>
+        <?php echo $this->broker('headScript'); ?>
 
     </head>
 
@@ -45,28 +31,28 @@
 
         <div id="page" class="container_16">
 
-            <?php echo $this->navigation()->menu($this->navigationContainer()); ?>
+            <?php //echo $this->broker('navigation')->menu($this->navigationContainer()); ?>
 
             <div id="body" class="container_16">
 
                 <div id="left" class="grid_11">
 
                     <div class="breadcrumbs">
-                        <?php echo $this->customBreadcrumbs(); ?>
+                        <?php //echo $this->customBreadcrumbs(); ?>
                     </div>
 
                     <?php
-                        echo $this->layout()->content;
+                        echo $this->broker('layout')->direct()->content;
                     ?>
                 </div>
 
                 <div id="right" class="grid_5">
 
                     <div id="search">
-                        <form name="search" action="<?php echo $this->url(array(
+                        <form name="search" action="<?php echo $this->broker('url')->direct(array(
                             'action' => 'search',
                             'controller' => 'news'
-                            ), 'search', true); ?>" method="get">
+                            ), '', true); ?>" method="get">
                             <input type="text" name="keyword" class="search-field" />
                             <input type="image" name="search" src="/static/img/search.jpg" class="search-image" />
                         </form>
@@ -86,19 +72,19 @@
 
                     <div id="banners">
                         <div class="banner">
-                            <a href="<?php echo $this->url(array(
+                            <a href="<?php echo $this->broker('url')->direct(array(
                                             'action' => 'contact',
                                             'controller' => 'index'),
-                                             'contact', true); ?>">
+                                             '', true); ?>">
                             <img src="/static/img/banner1.jpg" alt="banner" />
                             </a>
                         </div>
                         
                         <div class="banner">
-                            <a href="<?php echo $this->url(array(
+                            <a href="<?php echo $this->broker('url')->direct(array(
                                             'action' => 'contact',
                                             'controller' => 'index'),
-                                             'contact', true); ?>">
+                                             '', true); ?>">
                             <img src="/static/img/banner2.jpg" alt="banner" />
                             </a>
                         </div>
@@ -106,7 +92,7 @@
 
                     <div id="tag-cloud">
                         <h4>Oznake</h4>
-                        <?php echo $this->mostUsedTags(); ?>
+                        <?php //echo $this->mostUsedTags(); ?>
                     </div>
 
                 </div>
