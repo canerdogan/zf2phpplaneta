@@ -1,6 +1,12 @@
 <?php
 
-use Zend\Application;
+use Zend\Application,
+    Zend\Config\Ini,
+    Zend\Log,
+    Zend\Registry,
+    Zend\Translator\Translator,
+    Zend\Validator,
+    Zend\Controller\Router\Route;
 
 /**
  *   File: Bootstrap.php
@@ -22,34 +28,37 @@ class Bootstrap extends Application\Bootstrap {
      * 
      * @return Zend_Application_Module_Autoloader
      */
-    public function _initPublicAutoload()
-    {
-        $moduleLoader = new Zend_Application_Module_Autoloader(
-                                array(
-                                    'namespace' => 'Planet',
-                                    'basePath' => APPLICATION_PATH . '/modules/public'
-                                )
-                            );
-
-        // adding model resources to the autoloader
-        $moduleLoader->addResourceTypes(
-                array(
-                'modelResources' => array(
-                        'path' => 'models/resources',
-                        'namespace' => 'Model_Resource'
-                    )
-                )
-            );
-
-        return $moduleLoader;
-    }
+//    public function _initPublicAutoload()
+//    {
+//        $moduleLoader = new Zend_Application_Module_Autoloader(
+//                                array(
+//                                    'namespace' => 'Planet',
+//                                    'basePath' => APPLICATION_PATH . '/modules/public'
+//                                )
+//                            );
+//
+//        // adding model resources to the autoloader
+//        $moduleLoader->addResourceTypes(
+//                array(
+//                'modelResources' => array(
+//                        'path' => 'models/resources',
+//                        'namespace' => 'Model_Resource'
+//                    )
+//                )
+//            );
+//
+//        return $moduleLoader;
+//    }
 
     /**
      * Initializing action helpers
      */
     public function _initActionHelpers()
     {
-        Zend_Controller_Action_HelperBroker::addPath(APPLICATION_PATH .'/modules/public/controllers/helpers');
+//        Zend_Controller_Action_HelperBroker::addPath(APPLICATION_PATH .'/modules/public/controllers/helpers');
+//        $loggedInUserHelper = new Zend_Controller_Action_Helper_LoggedInUser();
+//        $broker = new Zend\Controller\Action\HelperBroker();
+//        $broker->register('logged_in_user', $loggedInUserHelper);
     }
 
     public function _initLogger()
@@ -60,36 +69,41 @@ class Bootstrap extends Application\Bootstrap {
 
         if($config->settings->logs->enabled) {
             if(is_writable($config->settings->logs->filepath)) {
-                $writer = new Zend_Log_Writer_Stream($config->settings->logs->filepath);
+                $writer = new Log\Writer\Stream($config->settings->logs->filepath);
 
-                $formatter = new Zend_Log_Formatter_Xml();
+                $formatter = new Log\Formatter\Xml();
                 $writer->setFormatter($formatter);
             }
         }
 
         if($writer === null) {
-            trigger_error("Logs are disabled. Is the log path writeable?", E_USER_NOTICE);
-            $writer = new Zend_Log_Writer_Null();
+//            trigger_error("Logs are disabled. Is the log path writeable?", E_USER_NOTICE);
+            $writer = new Log\Writer\Null();
         }
         
-        $logger = new Zend_Log();
+        $logger = new Log\Logger();
         $logger->addWriter($writer);
 
-        Zend_Registry::set('logger', $logger);
+        Registry::set('logger', $logger);
     }
 
     public function _initTranslator()
     {
-        $currentLocale = 'sr';
-
-        $translator = new Zend_Translate('array', realpath(APPLICATION_PATH . '/../resources/languages/sr/Zend_Validate.php'), 'sr');
-        $translator->setLocale($currentLocale);
-
-        Zend_Validate_Abstract::setDefaultTranslator($translator);
-
-        Zend_Registry::set('Zend_Translate', $translator);
-
-        return $translator;
+//        $currentLocale = 'sr';
+//
+//        $translatorOptions = array(
+//            'adapter' => 'ArrayAdapter'
+//        );
+//        
+////        $translator = new Translator('ArrayAdapter', realpath(APPLICATION_PATH . '/../resources/languages/sr/Zend_Validate.php'), 'sr');
+//        $translator = new Translator($translatorOptions);
+//        $translator->setLocale($currentLocale);
+//
+//        Validator\AbstractValidator::setDefaultTranslator($translator);
+//
+//        Registry::set('Zend_Translate', $translator);
+//
+//        return $translator;
     }
 
     /**
@@ -101,33 +115,33 @@ class Bootstrap extends Application\Bootstrap {
         $this->_layout = $this->getResource('layout');
         $this->_view = $this->_layout->getView();
 
-        $this->_view->doctype('XHTML1_STRICT');
-        $this->_view->headMeta()->appendHttpEquiv('Content-type', 'text/html;charset=utf-8');
-        $this->_view->headTitle('PHPplaneta.net');
-        $this->_view->headTitle()->setSeparator(' / ');
+        $this->_view->broker('doctype')->setDoctype('XHTML1_STRICT');
+        $this->_view->broker('headMeta')->appendHttpEquiv('Content-type', 'text/html;charset=utf-8');
+        $this->_view->broker('headTitle')->direct('PHPplaneta.net')
+                                        ->setSeparator(' / ');
 
-        $this->_view->headLink(array(
+        $this->_view->broker('headLink')->direct(array(
             'rel' => 'alternate',
             'type' => 'application/rss+xml',
             'title' => 'PHPPlaneta glavni feed',
             'href' => 'http://feeds.feedburner.com/PHPPlaneta'
         ));
 
-        $this->_view->addHelperPath('PPN/View/Helper','PPN_View_Helper');
-        $this->_view->addHelperPath('ZendX/JQuery/View/Helper','ZendX_JQuery_View_Helper');
+//        $this->_view->addHelperPath('PPN/View/Helper','PPN_View_Helper');
+//        $this->_view->addHelperPath('ZendX/JQuery/View/Helper','ZendX_JQuery_View_Helper');
 
-        $this->_view->jQuery()
-                        ->addStylesheet('/static/css/smoothness/jquery-ui-1.8.1.custom.css')
-                        ->setVersion('1.4.2')
-                        ->enable()
-                        ->setUiVersion('1.8.1')
+//        $this->_view->jQuery()
+//                        ->addStylesheet('/static/css/smoothness/jquery-ui-1.8.1.custom.css')
+//                        ->setVersion('1.4.2')
+//                        ->enable()
+//                        ->setUiVersion('1.8.1')
 //                        ->setLocalPath('/static/js/jquery-1.4.2.min.js')
 //                        ->setUiLocalPath('/static/js/jquery-ui-1.8.1.custom.min.js')
-                        ->uiEnable();
+//                        ->uiEnable();
     }
 
     public function _initPublicRoutes()
-    {
+    {return;
         $this->bootstrap('FrontController');
         $fc = $this->getResource('FrontController');
 
@@ -258,13 +272,13 @@ class Bootstrap extends Application\Bootstrap {
     }
 
     public function _initAdminRoute()
-    {
+    {return false;
         $this->bootstrap('FrontController');
         $fc = $this->getResource('FrontController');
 
         $router = $fc->getRouter();
 
-        $adminRoute = new Zend_Controller_Router_Route(
+        $adminRoute = new Route\Route(
                     'admin/:module/:controller/:action/*',
                     array(
                         'action' => 'index',
@@ -276,7 +290,7 @@ class Bootstrap extends Application\Bootstrap {
 
         $router->addRoute('admin', $adminRoute);
 
-        $loginRoute = new Zend_Controller_Router_Route_Static(
+        $loginRoute = new Route\StaticRoute(
                     'login',
                     array(
                         'action' => 'login',
@@ -418,7 +432,7 @@ class Bootstrap extends Application\Bootstrap {
     private function __getConfig()
     {
         if($this->__config === null) {
-            $this->__config = new Zend_Config_Ini(APPLICATION_PATH . '/configs/application.ini', APPLICATION_ENV);
+            $this->__config = new Ini(APPLICATION_PATH . '/configs/application.ini', APPLICATION_ENV);
         }
 
         return $this->__config;
