@@ -1,33 +1,10 @@
-phpplaneta
+ZF2 playground.
 
-==============================
+ln -s the zf2 library to library/Zend
 
-This is the source code behind http://phpplaneta.net/ a web site dedicated
-to the PHP community in Serbia and region.
+use the schema/data from the db directory
 
-It is built on top of the Zend Framework http://framework.zend.com/
+if you get a "Warning: require_once(Zend/Controller/Router/Route/Module.php): failed to open stream: No such file or directory"
+error you might try commenting out line 97 in library/Zend/Controller/Router/Rewrite.php
 
-The interface is in Serbian, but that shouldn't be a blocker, as the interface
-isn't really complicated.
-
-The source code, altho messy here and there, is in English.
-
-Sorry for the lack of unit tests and comments :P
-
-==============================
-Install
-==============================
-Include the Zend Framework in the library directory, import the SQL files
-from the db directory, change the application.ini in application/configs
-directory, add writing permission for the web server on the data
-directory and you should be good to go.
-
-The contact page is using GMail's SMTP to send mails, so if you want
-to use it too (with your own account of course), see the
-application/modules/public/services/Contact.php file to setup things.
-
-==============================
-LICENSE
-==============================
-phpplaneta is released under the MIT license, for the full license text,
-please see the LICENSE file.
+hack away!
