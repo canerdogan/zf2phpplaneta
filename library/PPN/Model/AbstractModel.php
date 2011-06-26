@@ -37,7 +37,7 @@ class AbstractModel
     public function getResource($resourceName)
     {
         if(!isset($this->_resources[$resourceName])) {
-            $resourceClass = $this->_getNamespace() . '_Model_Resource_' . $resourceName;
+            $resourceClass = $this->_getModuleName() . '\Model\Resource\\' . $resourceName;
             $this->_resources[$resourceName] = new $resourceClass();
         }
 
@@ -55,16 +55,16 @@ class AbstractModel
     public function getForm($formName)
     {
         if(!isset($this->_forms[$formName])) {
-            $formClass = $this->_getNamespace() . '_Form_' . $formName;
+            $formClass = $this->_getModuleName() . '\Form\\' . $formName;
             $this->_forms[$formName] = new $formClass($this);
         }
 
         return $this->_forms[$formName];
     }
 
-    protected function _getNamespace()
+    protected function _getModuleName()
     {
-        $namespace = explode('_', get_class($this));
+        $namespace = explode('\\', get_class($this));
         return $namespace[0];
     }
 

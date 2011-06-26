@@ -15,10 +15,10 @@
             ili možda da probaš da pretražiš dokumente pomoću forme za pretragu:
         </p>
 
-        <form name="search" action="<?php echo $this->url(array(
+        <form name="search" action="<?php echo $this->broker('url')->direct(array(
             'action' => 'search',
             'controller' => 'news'
-            ), 'search', true); ?>" method="get">
+            ), '', true); ?>" method="get">
             <label for="keyword">Ključna reč</label>: <input type="text" name="keyword" />
             <input type="submit" name="search" value="Vadi me odavde" />
         </form>

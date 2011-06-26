@@ -16,10 +16,9 @@ class IndexController extends Action
 
     public function indexAction()
     {
-//        $page = $this->_getParam('page', 1);
+        $page = $this->_getParam('page', 1);
 
-//        $this->view->news = $this->model->getAllActiveNews($page);
-        $this->view->news = array();
+        $this->view->news = $this->model->getAllActiveNews($page);
     }
 
     public function aboutAction()

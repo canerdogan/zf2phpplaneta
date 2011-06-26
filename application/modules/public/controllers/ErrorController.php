@@ -1,11 +1,13 @@
 <?php
 
-class ErrorController extends Zend_Controller_Action
+use Zend\Controller\Action;
+
+class ErrorController extends Action
 {
 
     public function errorAction()
     {
-        $this->_cancelFullPageCache();
+//        $this->_cancelFullPageCache();
 
         $errors = $this->_getParam('error_handler');
 
@@ -22,7 +24,7 @@ class ErrorController extends Zend_Controller_Action
                 return $this->_forward('not-found');
                 break;
             default:
-                $this->_logError($errors, 2);
+//                $this->_logError($errors, 2);
                 // application error
                 $stackTrace = $errors->exception->getTraceAsString();
                 $message = $errors->exception->getMessage();

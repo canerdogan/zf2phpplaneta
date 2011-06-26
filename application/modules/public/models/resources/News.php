@@ -1,5 +1,9 @@
 <?php
 
+namespace Planet\Model\Resource;
+
+use PPN\Model\Resource\AbstractResource;
+
 /**
  * Model resource for news
  * table news
@@ -7,7 +11,7 @@
  * @author robert
  * @todo throw specific exceptions
  */
-class Planet_Model_Resource_News extends PPN_Model_Resource_Abstract
+class News extends AbstractResource
 {
     /**
      * Name of the table
@@ -22,7 +26,7 @@ class Planet_Model_Resource_News extends PPN_Model_Resource_Abstract
      *
      * @var Zend_Db_Table_Row_Abstract
      */
-    protected $_rowClass = 'Planet_Model_Resource_News_Item';
+//    protected $_rowClass = 'Planet\Model\Resource\News\Item';
 
     /**
      * Get all active news
