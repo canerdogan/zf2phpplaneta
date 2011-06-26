@@ -2,6 +2,11 @@ ZF2 playground.
 
 ln -s the zf2 library to library/Zend
 
+ln -s the bin folder from zf2 to bin/
+
+run classmaps.php from the console to generate all the classmaps
+for the autoloader
+
 use the schema/data from the db directory
 
 if you get a "Warning: require_once(Zend/Controller/Router/Route/Module.php): failed to open stream: No such file or directory"

@@ -28,27 +28,27 @@ class Bootstrap extends Application\Bootstrap {
      * 
      * @return Zend_Application_Module_Autoloader
      */
-//    public function _initPublicAutoload()
-//    {
-//        $moduleLoader = new Zend_Application_Module_Autoloader(
-//                                array(
-//                                    'namespace' => 'Planet',
-//                                    'basePath' => APPLICATION_PATH . '/modules/public'
-//                                )
-//                            );
-//
-//        // adding model resources to the autoloader
-//        $moduleLoader->addResourceTypes(
-//                array(
-//                'modelResources' => array(
-//                        'path' => 'models/resources',
-//                        'namespace' => 'Model_Resource'
-//                    )
-//                )
-//            );
-//
-//        return $moduleLoader;
-//    }
+    public function _initPublicAutoload()
+    {
+        $moduleLoader = new Application\Module\Autoloader(
+                                array(
+                                    'namespace' => 'Planet',
+                                    'basePath' => APPLICATION_PATH . '/modules/public'
+                                )
+                            );
+
+        // adding model resources to the autoloader
+        $moduleLoader->addResourceTypes(
+                array(
+                'modelResources' => array(
+                        'path' => 'models/resources',
+                        'namespace' => 'Model_Resource'
+                    )
+                )
+            );
+
+        return $moduleLoader;
+    }
 
     /**
      * Initializing action helpers

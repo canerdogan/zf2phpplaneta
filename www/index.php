@@ -17,13 +17,28 @@ defined('APPLICATION_ENV')
 //    get_include_path(),
 //)));
 
-require_once __DIR__ . '/../library/Zend/Loader/StandardAutoloader.php';
+//require_once __DIR__ . '/../library/Zend/Loader/StandardAutoloader.php';
+require_once __DIR__ . '/../library/Zend/Loader/AutoloaderFactory.php';
+//
+//$loader = new \Zend\Loader\StandardAutoloader();
+//// no need to register ZendFramework, it's autoregistered
+//// $loader->registerNamespace('Zend', LIBRARY_PATH . '/Zend');
+//$loader->registerNamespace('App', LIBRARY_PATH . '/App');
+//$loader->register();
 
-$loader = new \Zend\Loader\StandardAutoloader();
-// no need to register ZendFramework, it's autoregistered
-// $loader->registerNamespace('Zend', LIBRARY_PATH . '/Zend');
-$loader->registerNamespace('App', LIBRARY_PATH . '/App');
-$loader->register();
+$options = array(
+    'Zend\Loader\StandardAutoloader' => array(
+        // Fallback include_path autoloader
+        array('' => null),
+    ),
+    'Zend\Loader\ClassMapAutoloader' => array(
+        // ClassMap autoloading for libraries and application
+        __DIR__ . '/../library/Zend/.classmap.php',
+        __DIR__ . '/../library/PPN/.classmap.php',
+        __DIR__ . '/../application/.classmap.php',
+    ),
+);
+$loaders = Zend\Loader\AutoloaderFactory::factory($options);
 
 use Zend\Application\Application;
 

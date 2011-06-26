@@ -2,12 +2,14 @@
 
 use Zend\Controller\Action;
 
+use Planet\Model;
+
 class IndexController extends Action
 {
 
     public function init()
     {
-//        $this->model = new Planet_Model_News();
+        $this->model = new Model\News();
 //        $this->fm = $this->getHelper('flashMessenger');
 //        $this->redirector = $this->getHelper('redirector');
     }
