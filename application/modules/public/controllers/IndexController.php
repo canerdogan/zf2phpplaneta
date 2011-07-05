@@ -1,6 +1,7 @@
 <?php
 
-use Zend\Controller\Action;
+use Zend\Controller\Action,
+        Zend\View\Variables;
 
 use Planet\Model;
 
@@ -10,15 +11,16 @@ class IndexController extends Action
     public function init()
     {
         $this->model = new Model\News();
-//        $this->fm = $this->getHelper('flashMessenger');
-//        $this->redirector = $this->getHelper('redirector');
+        
+        $this->viewVars = new Variables();
+        $this->view->setVars($this->viewVars);
     }
 
     public function indexAction()
     {
         $page = $this->_getParam('page', 1);
 
-        $this->view->news = $this->model->getAllActiveNews($page);
+        $this->viewVars->offsetSet('news', $this->model->getAllActiveNews($page));
     }
 
     public function aboutAction()
