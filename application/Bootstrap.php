@@ -141,13 +141,13 @@ class Bootstrap extends Application\Bootstrap {
     }
 
     public function _initPublicRoutes()
-    {return;
+    {
         $this->bootstrap('FrontController');
         $fc = $this->getResource('FrontController');
 
         $router = $fc->getRouter();
 
-        $contactRoute = new Zend_Controller_Router_Route_Static(
+        $contactRoute = new Route\StaticRoute(
                     'kontakt',
                     array(
                         'action' => 'contact',
@@ -156,7 +156,7 @@ class Bootstrap extends Application\Bootstrap {
                     )
                 );
 
-        $aboutRoute = new Zend_Controller_Router_Route_Static(
+        $aboutRoute = new Route\StaticRoute(
                     'o-php-planeti',
                     array(
                         'action' => 'about',
@@ -165,7 +165,7 @@ class Bootstrap extends Application\Bootstrap {
                     )
                 );
 
-        $rssRoute = new Zend_Controller_Router_Route_Static(
+        $rssRoute = new Route\StaticRoute(
                     'rss',
                     array(
                         'action' => 'rss',
@@ -174,7 +174,7 @@ class Bootstrap extends Application\Bootstrap {
                     )
                 );
 
-        $categoryRoute = new Zend_Controller_Router_Route_Regex(
+        $categoryRoute = new Route\Regex(
                     'kategorija/([\w-]+)/strana/(\d+)',
                     array(
                         'action' => 'browse',
@@ -189,7 +189,7 @@ class Bootstrap extends Application\Bootstrap {
                     'kategorija/%s/strana/%d'
                 );
 
-        $tagRoute = new Zend_Controller_Router_Route_Regex(
+        $tagRoute = new Route\Regex(
                     'oznaka/([\w-]+)/strana/(\d+)',
                     array(
                         'action' => 'browse',
@@ -204,7 +204,7 @@ class Bootstrap extends Application\Bootstrap {
                     'oznaka/%s/strana/%d'
                 );
 
-        $dateRoute = new Zend_Controller_Router_Route_Regex(
+        $dateRoute = new Route\Regex(
                     'datum/([\d-]+)/strana/(\d+)',
                     array(
                         'action' => 'browse',
@@ -219,7 +219,7 @@ class Bootstrap extends Application\Bootstrap {
                     'datum/%s/strana/%d'
                 );
 
-        $searchRoute = new Zend_Controller_Router_Route_Regex(
+        $searchRoute = new Route\Regex(
                     'pretraga/strana/(\d+)',
                     array(
                         'action' => 'search',
@@ -233,7 +233,7 @@ class Bootstrap extends Application\Bootstrap {
                     'pretraga/strana/%d'
                 );
 
-        $newsRoute = new Zend_Controller_Router_Route_Regex(
+        $newsRoute = new Route\Regex(
                     '([\w-\d]+)',
                     array(
                         'action' => 'view',
@@ -246,7 +246,7 @@ class Bootstrap extends Application\Bootstrap {
                     '%s'
                 );
 
-        $homePaginationRoute = new Zend_Controller_Router_Route_Regex(
+        $homePaginationRoute = new Route\Regex(
                     'strana/(\d+)',
                     array(
                         'action' => 'index',
@@ -272,7 +272,7 @@ class Bootstrap extends Application\Bootstrap {
     }
 
     public function _initAdminRoute()
-    {return false;
+    {
         $this->bootstrap('FrontController');
         $fc = $this->getResource('FrontController');
 
