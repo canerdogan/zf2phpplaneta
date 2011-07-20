@@ -70,6 +70,7 @@ class AbstractModel
 
     protected function _cleanFullPageCache()
     {
+        return false;
         try {
             $cache = Zend_Registry::get('pageCache');
             $cache->clean(Zend_Cache::CLEANING_MODE_ALL);

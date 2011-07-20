@@ -52,26 +52,28 @@ class NewsController extends Action
 //                                                ),
 //                                                'news', true
 //                                            ));
-//        $commentsForm->getElement('fk_news_id')->setValue($news->id);
-//
-//        if($this->_request->isPost()) {
-//            if($commentsForm->isValid($this->_request->getPost())) {
-//                try {
-//                   $this->model->saveComment($commentsForm->getValues());
-//
+        $commentsForm->getElement('fk_news_id')->setValue($news->id);
+
+        if($this->_request->isPost()) {
+            if($commentsForm->isValid($this->_request->getPost())) {
+                try {
+                   $this->model->saveComment($commentsForm->getValues());
+
 //                   $this->fm->addMessage(array('fm-good' => 'Komentar uspešno dodat!'));
-//
+
 //                   return $this->redirector->gotoRoute(
 //                           array('action' => 'view', 'controller' => 'news', 'slug' => $slug),
 //                           'news', true
 //                           );
-//                } catch (Exception $e) {
+                } catch (Exception $e) {
 //                    $this->fm->addMessage(array('fm-bad' => $e->getMessage()));
-//                }
-//            }
-//        }
-//
-//        $this->view->commentsForm = $commentsForm;
+                }
+            } else {
+                var_dump($commentsForm->getMessages());exit;
+            }
+        }
+
+        $this->view->vars()->commentsForm = $commentsForm;
     }
 
     public function browseAction()

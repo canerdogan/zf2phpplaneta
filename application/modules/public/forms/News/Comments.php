@@ -144,16 +144,16 @@ class Comments extends \PPN\Form\AbstractForm
             )
         );
 
-        $this->addElement(
-            'text',
-            'js_fill',
-            array(
-                'label' => 'JS fill:',
-                'required' => true,
-                'class' => 'honeypot',
-                'decorators' => array('ViewHelper')
-            )
-        );
+//        $this->addElement(
+//            'text',
+//            'js_fill',
+//            array(
+//                'label' => 'JS fill:',
+//                'required' => true,
+//                'class' => 'honeypot',
+//                'decorators' => array('ViewHelper')
+//            )
+//        );
 
         $this->addElement(
             'hidden',

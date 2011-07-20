@@ -1,12 +1,16 @@
 <?php
 
+namespace Planet\Model\Resource\News;
+
+use PPN\Model\Resource\AbstractResource;
+
 /**
  * Model resource for news sources
  * table news_sources
  *
  * @author robert
  */
-class Planet_Model_Resource_News_Comments extends PPN_Model_Resource_Abstract
+class Comments extends AbstractResource
 {
     /**
      * Name of the table
@@ -21,7 +25,7 @@ class Planet_Model_Resource_News_Comments extends PPN_Model_Resource_Abstract
      *
      * @var Zend_Db_Table_Row_Abstract
      */
-    protected $_rowClass = 'Planet_Model_Resource_News_Comments_Item';
+//    protected $_rowClass = 'Planet_Model_Resource_News_Comments_Item';
 
     public function getAllComments($page=null)
     {

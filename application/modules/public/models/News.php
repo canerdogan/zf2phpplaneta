@@ -485,7 +485,7 @@ class News extends \PPN\Model\AbstractModel
         $this->_cleanFullPageCache();
 
         if(!array_key_exists('id', $data)) {
-            $form = $this->getForm('News_Comments_Add');
+            $form = $this->getForm('News\Comments\Add');
             $form->populate($data);
             $form->removeElement('csrf');
 
@@ -506,7 +506,7 @@ class News extends \PPN\Model\AbstractModel
             $data['datetime_added'] = date('Y-m-d H:i:s');
             $data['active'] = true;
 
-            $return = $this->getResource('News_Comments')->insertComment($data);
+            $return = $this->getResource('News\Comments')->insertComment($data);
         } else {
             $form = $this->getForm('News_Comments_Edit');
             $form->populate($data);
