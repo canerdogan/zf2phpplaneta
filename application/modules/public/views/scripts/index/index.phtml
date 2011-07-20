@@ -8,8 +8,8 @@
                 <a href="<?php echo $this->broker('url')->direct(array(
                     'action' => 'view',
                     'controller' => 'news',
-                    'slug' => $news->slug
-                ), 'news', true); ?>"><?php echo $news->title; ?></a>
+                    'slug' => $this->vars()->escape($news->slug)
+                ), 'news', true); ?>"><?php echo $this->vars()->escape($news->title); ?></a>
             </h2>
         </div>
 
@@ -23,15 +23,15 @@
                     <a href="<?php echo $this->broker('url')->direct(array(
                         'action' => 'browse',
                         'controller' => 'news',
-                        'category' => $news->category_slug
-                    ), 'category', true); ?>"><?php echo $news->category_title; ?></a>
+                        'category' => $this->vars()->escape($news->category_slug)
+                    ), 'category', true); ?>"><?php echo $this->vars()->escape($news->category_title); ?></a>
                 </span>
 
                 <span>
                     <a href="<?php echo $this->broker('url')->direct(array(
                     'action' => 'view',
                     'controller' => 'news',
-                    'slug' => $news->slug
+                    'slug' => $this->vars()->escape($news->slug)
                             ), 'news', true); ?>#comments">
                         <?php //echo $this->broker('numberOfComments')->direct($news->id); ?>
                     </a>
