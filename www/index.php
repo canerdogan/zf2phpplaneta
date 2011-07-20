@@ -12,13 +12,13 @@ defined('APPLICATION_ENV')
     || define('APPLICATION_ENV', (getenv('APPLICATION_ENV') ? getenv('APPLICATION_ENV') : 'production'));
 
 // Ensure library/ is on include_path
-//set_include_path(implode(PATH_SEPARATOR, array(
-//    realpath(APPLICATION_PATH . '/../library'),
-//    get_include_path(),
-//)));
+set_include_path(implode(PATH_SEPARATOR, array(
+    realpath(APPLICATION_PATH . '/../library'),
+    get_include_path(),
+)));
 
 //require_once __DIR__ . '/../library/Zend/Loader/StandardAutoloader.php';
-require_once __DIR__ . '/../library/Zend/Loader/AutoloaderFactory.php';
+require_once 'Zend/Loader/AutoloaderFactory.php';
 //
 //$loader = new \Zend\Loader\StandardAutoloader();
 //// no need to register ZendFramework, it's autoregistered
