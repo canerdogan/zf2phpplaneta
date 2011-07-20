@@ -1,15 +1,13 @@
 <?php
-/* 
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
+namespace Planet\Form\News\Comments;
 
 /**
  * Description of Add
  *
  * @author robert
  */
-class Planet_Form_News_Comments_Edit extends Planet_Form_News_Comments
+class Edit extends \Planet\Form\News\Comments
 {
     
     public function init()

@@ -46,7 +46,7 @@ class AbstractModel
 
     /**
      * Get a form used for data validation/filtering in models
-     * $resourceName must be in format Foo_Bar
+     * $formName must be in format Foo_Bar
      *
      * @param string $formName the form name
      * @param array $options additional options, models...

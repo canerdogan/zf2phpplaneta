@@ -44,7 +44,7 @@ class NewsController extends Action
 
         $this->view->vars()->news = $news;
 
-//        $commentsForm = $this->model->getForm('News_Comments_Add');
+        $commentsForm = $this->model->getForm('News\Comments\Add');
 //        $commentsForm->setAction($this->urlHelper->url(array(
 //                                                    'action' => 'view',
 //                                                    'controller' => 'news',
