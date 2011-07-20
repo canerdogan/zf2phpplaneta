@@ -1,5 +1,9 @@
 <?php
 
+use Zend\Controller\Action;
+
+use Planet\Model;
+
 /**
  *   File: NewsController.php
  *
@@ -8,23 +12,23 @@
  *      through this controller, as we're using "pseudo" module for the
  *      admin panel
 */
-class NewsController extends Zend_Controller_Action
+class NewsController extends Action
 {
 
     public function init()
     {
-        $this->model = new Planet_Model_News();
-        $this->loggedInUser = $this->_helper->loggedInUser();
-        $this->redirector = $this->getHelper('redirector');
-        $this->urlHelper = $this->getHelper('url');
-        $this->fm = $this->getHelper('flashMessenger');
-
-        if($this->loggedInUser) {
-            $this->view->headScript()->appendFile('/static/ckeditor/ckeditor.js');
-            $this->view->headScript()->appendFile('/static/ckeditor/adapters/jquery.js');
-            $this->view->headScript()->appendFile('/static/js/ckeditor.js');
-            $this->view->headScript()->appendFile('/static/js/tags.js');
-        }
+        $this->model = new Model\News();
+//        $this->loggedInUser = $this->_helper->loggedInUser();
+//        $this->redirector = $this->getHelper('redirector');
+//        $this->urlHelper = $this->getHelper('url');
+//        $this->fm = $this->getHelper('flashMessenger');
+//
+//        if($this->loggedInUser) {
+//            $this->view->headScript()->appendFile('/static/ckeditor/ckeditor.js');
+//            $this->view->headScript()->appendFile('/static/ckeditor/adapters/jquery.js');
+//            $this->view->headScript()->appendFile('/static/js/ckeditor.js');
+//            $this->view->headScript()->appendFile('/static/js/tags.js');
+//        }
     }
 
     public function indexAction()
@@ -38,36 +42,36 @@ class NewsController extends Zend_Controller_Action
 
         $news = $this->model->getOneActiveNewsBySlug($slug);
 
-        $this->view->news = $news;
+        $this->view->vars()->news = $news;
 
-        $commentsForm = $this->model->getForm('News_Comments_Add');
-        $commentsForm->setAction($this->urlHelper->url(array(
-                                                    'action' => 'view',
-                                                    'controller' => 'news',
-                                                    'slug' => $slug
-                                                ),
-                                                'news', true
-                                            ));
-        $commentsForm->getElement('fk_news_id')->setValue($news->id);
-
-        if($this->_request->isPost()) {
-            if($commentsForm->isValid($this->_request->getPost())) {
-                try {
-                   $this->model->saveComment($commentsForm->getValues());
-
-                   $this->fm->addMessage(array('fm-good' => 'Komentar uspešno dodat!'));
-
-                   return $this->redirector->gotoRoute(
-                           array('action' => 'view', 'controller' => 'news', 'slug' => $slug),
-                           'news', true
-                           );
-                } catch (Exception $e) {
-                    $this->fm->addMessage(array('fm-bad' => $e->getMessage()));
-                }
-            }
-        }
-
-        $this->view->commentsForm = $commentsForm;
+//        $commentsForm = $this->model->getForm('News_Comments_Add');
+//        $commentsForm->setAction($this->urlHelper->url(array(
+//                                                    'action' => 'view',
+//                                                    'controller' => 'news',
+//                                                    'slug' => $slug
+//                                                ),
+//                                                'news', true
+//                                            ));
+//        $commentsForm->getElement('fk_news_id')->setValue($news->id);
+//
+//        if($this->_request->isPost()) {
+//            if($commentsForm->isValid($this->_request->getPost())) {
+//                try {
+//                   $this->model->saveComment($commentsForm->getValues());
+//
+//                   $this->fm->addMessage(array('fm-good' => 'Komentar uspešno dodat!'));
+//
+//                   return $this->redirector->gotoRoute(
+//                           array('action' => 'view', 'controller' => 'news', 'slug' => $slug),
+//                           'news', true
+//                           );
+//                } catch (Exception $e) {
+//                    $this->fm->addMessage(array('fm-bad' => $e->getMessage()));
+//                }
+//            }
+//        }
+//
+//        $this->view->commentsForm = $commentsForm;
     }
 
     public function browseAction()
