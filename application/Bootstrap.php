@@ -57,6 +57,15 @@ class Bootstrap extends Application\Bootstrap {
     {
         Zend\Loader\PluginClassLoader::addStaticMap(array('loggedinuser' => 'Planet\Controller\Helper\LoggedInUser'));
     }
+    
+//    public function _initFcPlugins()
+//    {
+//        $this->bootstrap('FrontController');
+//        $fc = $this->getResource('FrontController');
+//        
+//        $plugin = new PPN\Plugin\AdminContext();
+//        $fc->registerPlugin($plugin);
+//    }
 
     public function _initLogger()
     {

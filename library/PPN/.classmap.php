@@ -11,5 +11,5 @@ return array (
   'PPN\\Model\\AbstractModel' => __DIR__ . DIRECTORY_SEPARATOR . 'Model' . DIRECTORY_SEPARATOR . 'AbstractModel.php',
   'PPN_Exception_NotFound' => __DIR__ . DIRECTORY_SEPARATOR . 'Exception' . DIRECTORY_SEPARATOR . 'NotFound.php',
   'PPN_Exception' => __DIR__ . DIRECTORY_SEPARATOR . 'Exception.php',
-  'PPN_Plugin_AdminContext' => __DIR__ . DIRECTORY_SEPARATOR . 'Plugin' . DIRECTORY_SEPARATOR . 'AdminContext.php',
+  'PPN\\Plugin\\AdminContext' => __DIR__ . DIRECTORY_SEPARATOR . 'Plugin' . DIRECTORY_SEPARATOR . 'AdminContext.php',
 );

@@ -1,10 +1,15 @@
 <?php
 
-class PPN_Plugin_AdminContext extends Zend_Controller_Plugin_Abstract
+namespace PPN\Plugin;
+
+use Zend\Controller\Plugin\AbstractPlugin as Plugin,
+    Zend\Controller\Request\AbstractRequest as Request;
+
+class AdminContext extends Plugin
 {
     protected $_auth = null;
 
-    public function preDispatch(Zend_Controller_Request_Abstract $request) 
+    public function preDispatch(Request $request) 
     {
         if($request->getParam('isAdmin')
                 or $request->getControllerName() === 'admin') {
