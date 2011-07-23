@@ -1,5 +1,7 @@
 <?php
 
+namespace Planet\Controller\Helper;
+
 use Zend\Controller\Action\Helper;
 
 /**
@@ -7,7 +9,7 @@ use Zend\Controller\Action\Helper;
  *
  * @author robert
  */
-class Zend_Controller_Action_Helper_LoggedInUser extends Helper\AbstractHelper
+class LoggedInUser extends Helper\AbstractHelper
 {
     protected $_auth = null;
 

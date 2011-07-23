@@ -9,6 +9,9 @@ class IndexController extends Action
 
     public function init()
     {
+        $this->fm = $this->broker('flashmessenger');
+        $this->loggedInUser = $this->broker('loggedinuser');
+        
         $this->model = new Model\News();
     }
 

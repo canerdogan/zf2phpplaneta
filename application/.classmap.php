@@ -20,7 +20,7 @@ return array (
   'UserController' => __DIR__ . DIRECTORY_SEPARATOR . 'modules' . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR . 'controllers' . DIRECTORY_SEPARATOR . 'UserController.php',
   'AdminController' => __DIR__ . DIRECTORY_SEPARATOR . 'modules' . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR . 'controllers' . DIRECTORY_SEPARATOR . 'AdminController.php',
   'NewsCommentsController' => __DIR__ . DIRECTORY_SEPARATOR . 'modules' . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR . 'controllers' . DIRECTORY_SEPARATOR . 'NewsCommentsController.php',
-  'Zend_Controller_Action_Helper_LoggedInUser' => __DIR__ . DIRECTORY_SEPARATOR . 'modules' . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR . 'controllers' . DIRECTORY_SEPARATOR . 'helpers' . DIRECTORY_SEPARATOR . 'LoggedInUser.php',
+  'Planet\\Controller\\Helper\\LoggedInUser' => __DIR__ . DIRECTORY_SEPARATOR . 'modules' . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR . 'controllers' . DIRECTORY_SEPARATOR . 'helpers' . DIRECTORY_SEPARATOR . 'LoggedInUser.php',
   'NewsTagsController' => __DIR__ . DIRECTORY_SEPARATOR . 'modules' . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR . 'controllers' . DIRECTORY_SEPARATOR . 'NewsTagsController.php',
   'NewsController' => __DIR__ . DIRECTORY_SEPARATOR . 'modules' . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR . 'controllers' . DIRECTORY_SEPARATOR . 'NewsController.php',
   'LogsController' => __DIR__ . DIRECTORY_SEPARATOR . 'modules' . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR . 'controllers' . DIRECTORY_SEPARATOR . 'LogsController.php',

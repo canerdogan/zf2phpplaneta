@@ -55,10 +55,7 @@ class Bootstrap extends Application\Bootstrap {
      */
     public function _initActionHelpers()
     {
-//        Zend_Controller_Action_HelperBroker::addPath(APPLICATION_PATH .'/modules/public/controllers/helpers');
-//        $loggedInUserHelper = new Zend_Controller_Action_Helper_LoggedInUser();
-//        $broker = new Zend\Controller\Action\HelperBroker();
-//        $broker->register('logged_in_user', $loggedInUserHelper);
+        Zend\Loader\PluginClassLoader::addStaticMap(array('loggedinuser' => 'Planet\Controller\Helper\LoggedInUser'));
     }
 
     public function _initLogger()
