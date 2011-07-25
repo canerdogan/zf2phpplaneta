@@ -18,7 +18,7 @@ class NewsController extends Action
     public function init()
     {
         $this->model = new Model\News();
-//        $this->loggedInUser = $this->_helper->loggedInUser();
+        $this->loggedInUser = $this->broker('loggedInUser');
 //        $this->redirector = $this->getHelper('redirector');
 //        $this->urlHelper = $this->getHelper('url');
 //        $this->fm = $this->getHelper('flashMessenger');
