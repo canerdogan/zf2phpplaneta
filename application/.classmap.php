@@ -45,7 +45,8 @@ return array (
   'Zend_View_Helper_NavigationContainer' => __DIR__ . DIRECTORY_SEPARATOR . 'modules' . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR . 'views' . DIRECTORY_SEPARATOR . 'helpers' . DIRECTORY_SEPARATOR . 'NavigationContainer.php',
   'Zend_View_Helper_Tags' => __DIR__ . DIRECTORY_SEPARATOR . 'modules' . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR . 'views' . DIRECTORY_SEPARATOR . 'helpers' . DIRECTORY_SEPARATOR . 'Tags.php',
   'Zend_View_Helper_Comments' => __DIR__ . DIRECTORY_SEPARATOR . 'modules' . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR . 'views' . DIRECTORY_SEPARATOR . 'helpers' . DIRECTORY_SEPARATOR . 'Comments.php',
-  'Zend_View_Helper_NumberOfComments' => __DIR__ . DIRECTORY_SEPARATOR . 'modules' . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR . 'views' . DIRECTORY_SEPARATOR . 'helpers' . DIRECTORY_SEPARATOR . 'NumberOfComments.php',
+  'Planet\\View\\Helper\\NumberOfComments' => __DIR__ . DIRECTORY_SEPARATOR . 'modules' . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR . 'views' . DIRECTORY_SEPARATOR . 'helpers' . DIRECTORY_SEPARATOR . 'NumberOfComments.php',
   'Zend_View_Helper_MostUsedTags' => __DIR__ . DIRECTORY_SEPARATOR . 'modules' . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR . 'views' . DIRECTORY_SEPARATOR . 'helpers' . DIRECTORY_SEPARATOR . 'MostUsedTags.php',
   'Zend_View_Helper_CustomBreadcrumbs' => __DIR__ . DIRECTORY_SEPARATOR . 'modules' . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR . 'views' . DIRECTORY_SEPARATOR . 'helpers' . DIRECTORY_SEPARATOR . 'CustomBreadcrumbs.php',
+  'Planet\\View\\HelperLoader' => __DIR__ . DIRECTORY_SEPARATOR . 'modules' . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR . 'views' . DIRECTORY_SEPARATOR . 'HelperLoader.php',
 );

@@ -33,7 +33,7 @@
                     'controller' => 'news',
                     'slug' => $this->vars()->escape($news->slug)
                             ), 'news', true); ?>#comments">
-                        <?php //echo $this->broker('numberOfComments')->direct($news->id); ?>
+                        <?php echo $this->broker('numberOfComments')->numberOfComments($news->id); ?>
                     </a>
                 </span>
 

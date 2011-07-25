@@ -146,6 +146,8 @@ class Bootstrap extends Application\Bootstrap {
 //                        ->setLocalPath('/static/js/jquery-1.4.2.min.js')
 //                        ->setUiLocalPath('/static/js/jquery-ui-1.8.1.custom.min.js')
 //                        ->uiEnable();
+        $planetHelperLoader = new \Planet\View\HelperLoader();
+        $this->_view->broker()->getClassLoader()->registerPlugins($planetHelperLoader);
     }
 
     public function _initPublicRoutes()

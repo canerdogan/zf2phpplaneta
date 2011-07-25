@@ -1,8 +1,8 @@
 <?php
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
+namespace Planet\View\Helper;
+
+use Planet\Model\News;
 
 /**
  * File: BaseUrl
@@ -13,7 +13,7 @@
  * Description:
  *
  */
-class Zend_View_Helper_NumberOfComments extends Zend_View_Helper_Abstract
+class NumberOfComments extends \Zend\View\Helper\AbstractHelper
 {
     protected $_model = null;
 
@@ -38,7 +38,7 @@ class Zend_View_Helper_NumberOfComments extends Zend_View_Helper_Abstract
     protected function _getModel()
     {
         if($this->_model === null) {
-            $this->_model = new Planet_Model_News();
+            $this->_model = new News();
         }
 
         return $this->_model;
