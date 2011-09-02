@@ -68,6 +68,9 @@ class Bootstrap extends Application\Bootstrap {
         $config = new Configuration($diConfig);
         $config->configure($di);
         
+        // recommended by ralphschindler, will have to see what this does
+        // $di->getDefinition()->getIntrospectionRuleset()->addSetterRule('paramCanBeOptional', false)
+        
         return $di;
     }
     
