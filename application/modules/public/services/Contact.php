@@ -27,7 +27,7 @@ class Contact
         if(!empty($data)) {
             $this->setMailData($data);
         }
-var_dump($mailer->getCharset());
+
         $this->_setTransport();
     }
 
