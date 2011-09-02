@@ -1,4 +1,9 @@
 <?php
+
+namespace Planet\Service;
+
+use Zend\Mail;
+
 /* 
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -9,15 +14,15 @@
  *
  * @author robert
  */
-class Planet_Service_Contact
+class Contact
 {
     protected $_mailer = null;
 
     protected $_mailTransport = null;
 
-    public function __construct($data=array())
+    public function __construct(Mail\Mail $mailer, $data=array())
     {
-        $this->_mailer = new Zend_Mail('utf-8');
+        $this->_mailer = $mailer;
 
         if(!empty($data)) {
             $this->setMailData($data);
@@ -74,9 +79,9 @@ class Planet_Service_Contact
                 'port' => 587
             );
 
-            $this->_mailTransport = new Zend_Mail_Transport_Smtp('smtp.gmail.com', $config);
+            $this->_mailTransport = new Mail\Transport\Smtp('smtp.gmail.com', $config);
 
-            Zend_Mail::setDefaultTransport($this->_mailTransport);
+            Mail\Mail::setDefaultTransport($this->_mailTransport);
         }
     }
 

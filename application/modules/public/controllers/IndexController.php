@@ -1,8 +1,10 @@
 <?php
 
 use Zend\Controller\Action;
-
+use Zend\Mail\Mail;
 use Planet\Model;
+use Planet\Form;
+use Planet\Service;
 
 class IndexController extends Action
 {
@@ -28,12 +30,16 @@ class IndexController extends Action
 
     public function contactAction()
     {
-        $contactForm = new Planet_Form_Contact();
+        $bootstrap = $this->getInvokeArg('bootstrap');
+        $di = $bootstrap->getResource('di');
+        $contactService = $di->get('Planet\Service\Contact');
+        
+        $contactForm = new Form\Contact();
 
         if($this->_request->isPost()) {
             if($contactForm->isValid($this->_request->getPost())) {
                 try {
-                    $contactService = new Planet_Service_Contact($contactForm->getValues());
+                    $contactService->setMailData($contactForm->getValues());
                     $contactService->sendMail();
                     
                     $this->fm->addMessage(array('fm-good' => 'E-mail uspešno poslat!'));

@@ -6,7 +6,11 @@ use Zend\Application,
     Zend\Registry,
     Zend\Translator\Translator,
     Zend\Validator,
-    Zend\Controller\Router\Route;
+    Zend\Controller\Router\Route,
+    Zend\Di\Configuration,
+    Zend\Di\Definition,
+    Zend\Di\Definition\Builder,
+    Zend\Di\DependencyInjector;
 
 /**
  *   File: Bootstrap.php
@@ -50,6 +54,23 @@ class Bootstrap extends Application\Bootstrap {
         return $moduleLoader;
     }
 
+    public function _initDi()
+    {
+        $diConfig = new Ini(APPLICATION_PATH . '/configs/di.ini', APPLICATION_ENV);
+        $diConfig = $diConfig->di;
+        
+        $definitionAggregator = new Definition\AggregateDefinition();
+        $definitionAggregator->addDefinition(new Definition\RuntimeDefinition());
+        
+        $di = new DependencyInjector();
+        $di->setDefinition($definitionAggregator);
+        
+        $config = new Configuration($diConfig);
+        $config->configure($di);
+        
+        return $di;
+    }
+    
     /**
      * Initializing action helpers
      */

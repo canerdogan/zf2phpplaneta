@@ -1,12 +1,16 @@
 <?php
 
+namespace Planet\Form;
+
+use PPN\Form\AbstractForm as Form;
+
 /**
  * Base form for adding/editing news
  *
  * @author robert
  * @todo tidy up validation and filtering
  */
-class Planet_Form_Contact extends PPN_Form_Abstract
+class Contact extends Form
 {
 
     public function init()
