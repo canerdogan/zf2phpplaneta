@@ -33,6 +33,7 @@ class IndexController extends Action
         $bootstrap = $this->getInvokeArg('bootstrap');
         $di = $bootstrap->getResource('di');
         $contactService = $di->get('Planet\Service\Contact');
+        var_dump($contactService);
         
         $contactForm = new Form\Contact();
 
