@@ -8,7 +8,6 @@ use Planet\Service;
 
 class IndexController extends Action
 {
-
     public function init()
     {
         $this->fm = $this->broker('flashmessenger');
@@ -63,5 +62,4 @@ class IndexController extends Action
 
         $this->view->contactForm = $contactForm;
     }
-
 }

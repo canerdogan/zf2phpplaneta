@@ -59,12 +59,11 @@ class Bootstrap extends Application\Bootstrap {
         $diConfig = new Ini(APPLICATION_PATH . '/configs/di.ini', APPLICATION_ENV);
         $diConfig = $diConfig->di;
         
-//        $definitionAggregator = new Definition\AggregateDefinition();
-//        $definitionAggregator->addDefinition(new Definition\RuntimeDefinition());
+        $definitionAggregator = new Definition\AggregateDefinition();
+        $definitionAggregator->addDefinition(new Definition\RuntimeDefinition(Definition\RuntimeDefinition::LOOKUP_TYPE_EXPLICIT));
         
         $di = new DependencyInjector();
-//        $di->setDefinition($definitionAggregator);
-        $di->setDefinition(new Definition\RuntimeDefinition());
+        $di->setDefinition($definitionAggregator);
         
         $config = new Configuration($diConfig);
         $config->configure($di);

@@ -27,8 +27,6 @@ class Contact
         if(!empty($data)) {
             $this->setMailData($data);
         }
-
-        $this->_setTransport();
     }
 
     public function setMailData($data)
@@ -68,21 +66,26 @@ class Contact
         }
     }
 
-    protected function _setTransport()
+    public function setTransport(Mail\AbstractTransport $transport)
     {
-        if($this->_mailTransport === null) {
-            $config = array(
-                'auth' => 'login',
-                'username' => 'phpplaneta@gmail.com',
-                'password' => 'password (not really)',
-                'ssl' => 'tls',
-                'port' => 587
-            );
-
-            $this->_mailTransport = new Mail\Transport\Smtp('smtp.gmail.com', $config);
-
-            Mail\Mail::setDefaultTransport($this->_mailTransport);
-        }
+        Mail\Mail::setDefaultTransport($transport);
     }
+    
+//    protected function _setTransport()
+//    {
+//        if($this->_mailTransport === null) {
+//            $config = array(
+//                'auth' => 'login',
+//                'username' => 'phpplaneta@gmail.com',
+//                'password' => 'password (not really)',
+//                'ssl' => 'tls',
+//                'port' => 587
+//            );
+//
+//            $this->_mailTransport = new Mail\Transport\Smtp('smtp.gmail.com', $config);
+//
+//            Mail\Mail::setDefaultTransport($this->_mailTransport);
+//        }
+//    }
 
 }
