@@ -60,7 +60,7 @@ class Bootstrap extends Application\Bootstrap {
         $diConfig = $diConfig->di;
         
         $definitionAggregator = new Definition\AggregateDefinition();
-        $definitionAggregator->addDefinition(new Definition\RuntimeDefinition(Definition\RuntimeDefinition::LOOKUP_TYPE_EXPLICIT));
+        $definitionAggregator->addDefinition(new Definition\RuntimeDefinition());
         
         $di = new DependencyInjector();
         $di->setDefinition($definitionAggregator);
