@@ -1,7 +1,7 @@
 <?php
 
 use Zend\Config\Ini as Config,
-    Zend\Di\Configuration,
+    Zend\Di\Configuration as DiConfig,
     Zend\Di\Definition,
     Zend\Di\Definition\Builder,
     Zend\Di\DependencyInjector;
@@ -11,7 +11,7 @@ class Bootstrap {
     /**
      * Application config
      * 
-     * @var Zend\Config\Ini
+     * @var Config
      */
     protected $config = null;
     
@@ -40,12 +40,12 @@ class Bootstrap {
         $di = new DependencyInjector();
         $di->setDefinition($definitionAggregator);
         
-        $config = new Configuration($diConfig);
+        $config = new DiConfig($diConfig);
         $config->configure($di);
         
         // recommended by ralphschindler, will have to see what this does
         // $di->getDefinition()->getIntrospectionRuleset()->addSetterRule('paramCanBeOptional', false)
         
-        return $di;
+        $application->setLocator($di);
     }
 }
