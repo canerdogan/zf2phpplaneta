@@ -41,9 +41,13 @@ $options = array(
 );
 $loaders = Zend\Loader\AutoloaderFactory::factory($options);
 
-use Zend\Application\Application;
+$app = new Zf2Mvc\Application();
+$bootstrap = new Bootstrap(APPLICATION_PATH . '/configs/application.ini');
+$bootstrap->bootstrap($app);
 
-$app = new Application(APPLICATION_ENV,
-                        APPLICATION_PATH . '/configs/application.ini');
-$app->bootstrap()
-        ->run();
+// this means app has to return something, no?
+// couldn't it be something liek
+// $app->run();
+// $response = $app->getResponse(); ?
+$response = $app->run();
+$response->send();
