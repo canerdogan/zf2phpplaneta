@@ -1,5 +1,6 @@
 <?php
 return array (
+  'Contact\\Controller\\Contact' => __DIR__ . DIRECTORY_SEPARATOR . 'Contact' . DIRECTORY_SEPARATOR . 'Controller' . DIRECTORY_SEPARATOR . 'Contact.php',
   'Zend_View_Helper_Tags' => __DIR__ . DIRECTORY_SEPARATOR . 'modules' . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR . 'views' . DIRECTORY_SEPARATOR . 'helpers' . DIRECTORY_SEPARATOR . 'Tags.php',
   'Zend_View_Helper_Comments' => __DIR__ . DIRECTORY_SEPARATOR . 'modules' . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR . 'views' . DIRECTORY_SEPARATOR . 'helpers' . DIRECTORY_SEPARATOR . 'Comments.php',
   'Planet\\View\\Helper\\NumberOfComments' => __DIR__ . DIRECTORY_SEPARATOR . 'modules' . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR . 'views' . DIRECTORY_SEPARATOR . 'helpers' . DIRECTORY_SEPARATOR . 'NumberOfComments.php',

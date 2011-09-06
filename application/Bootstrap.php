@@ -4,7 +4,8 @@ use Zend\Config\Ini as Config,
     Zend\Di\Configuration as DiConfig,
     Zend\Di\Definition,
     Zend\Di\Definition\Builder,
-    Zend\Di\DependencyInjector;
+    Zend\Di\DependencyInjector,
+    Zf2Mvc\Router\Http\Literal as LiteralRoute;
 
 class Bootstrap {
     
@@ -26,10 +27,11 @@ class Bootstrap {
     
     public function bootstrap($application)
     {
-        $this->setupDi($application);
+        $this->initDi($application);
+        $this->initRouting($application);
     }
     
-    protected function setupDi($application)
+    protected function initDi($application)
     {
         $diConfig = new Config(APPLICATION_PATH . '/configs/di.ini', APPLICATION_ENV);
         $diConfig = $diConfig->di;
@@ -47,5 +49,21 @@ class Bootstrap {
         // $di->getDefinition()->getIntrospectionRuleset()->addSetterRule('paramCanBeOptional', false)
         
         $application->setLocator($di);
+    }
+    
+    protected function initRouting($application)
+    {
+        $router = $application->getRouter();
+        
+        $route = new LiteralRoute(
+                array(
+                    'route' => '/contact',
+                    'defaults' => array(
+                        'controller' => 'Contact\Controller\Contact'
+                    )
+                )
+        );
+        
+        $router->addRoute('contact', $route);
     }
 }

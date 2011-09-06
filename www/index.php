@@ -50,4 +50,4 @@ $bootstrap->bootstrap($app);
 // $app->run();
 // $response = $app->getResponse(); ?
 $response = $app->run();
-$response->send();
+$response->toString();
