@@ -36,6 +36,7 @@ $options = array(
         __DIR__ . '/../library/Zend/.classmap.php',
         __DIR__ . '/../library/PPN/.classmap.php',
         __DIR__ . '/../application/.classmap.php',
+        __DIR__ . '/../modules/Zf2Mvc/classmap.php',
     ),
 );
 $loaders = Zend\Loader\AutoloaderFactory::factory($options);
