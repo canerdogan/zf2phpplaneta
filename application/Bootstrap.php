@@ -59,7 +59,7 @@ class Bootstrap {
                 array(
                     'route' => '/contact',
                     'defaults' => array(
-                        'controller' => 'Contact\Controller\Contact'
+                        'controller' => 'controller-contact'
                     )
                 )
         );

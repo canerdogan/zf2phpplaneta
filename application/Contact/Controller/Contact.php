@@ -11,5 +11,8 @@ use Zf2Mvc\Controller\ActionController;
  */
 class Contact extends ActionController
 {
-    
+    public function indexAction()
+    {
+        echo 'hello';
+    }
 }
