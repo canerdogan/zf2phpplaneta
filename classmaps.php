@@ -9,6 +9,6 @@ $directories = array(
 );
 
 foreach($directories as $dir) {
-    $classmapGenerator = 'php ' . __DIR__ . '/bin/classmap_generator.php -l ' . $dir . ' -w';
+    $classmapGenerator = 'php -d memory_limit=-1 ' . __DIR__ . '/bin/classmap_generator.php -l ' . $dir . ' -w';
     system($classmapGenerator);
 }
