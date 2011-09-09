@@ -49,5 +49,4 @@ $bootstrap->bootstrap($app);
 // couldn't it be something liek
 // $app->run();
 // $response = $app->getResponse(); ?
-$response = $app->run();
-$response->send();
+$response = $app->run()->send();

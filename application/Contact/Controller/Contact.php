@@ -13,6 +13,6 @@ class Contact extends ActionController
 {
     public function indexAction()
     {
-        echo 'hello';
+        return array('foo' => 'bar');
     }
 }
